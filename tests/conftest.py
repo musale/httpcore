@@ -153,7 +153,7 @@ def uds_server() -> typing.Iterator[UvicornServer]:
 @pytest.fixture(scope="session")
 def server() -> typing.Iterator[Server]:
     if sys.version_info < (3, 7):
-        pytest.skip(reason="Hypercorn requires Python 3.7 or higher")
+        pytest.skip("Hypercorn requires Python 3.7 or higher")
 
     server = Server(app=app, host=SERVER_HOST, port=SERVER_HTTP_PORT)
 
@@ -191,7 +191,7 @@ def https_server(
     localhost_cert_pem_file: str, localhost_cert_private_key_file: str
 ) -> typing.Iterator[Server]:
     if sys.version_info < (3, 7):
-        pytest.skip(reason="Hypercorn requires Python 3.7 or higher")
+        pytest.skip("Hypercorn requires Python 3.7 or higher")
 
     server = Server(
         app=app,
