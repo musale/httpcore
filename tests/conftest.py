@@ -2,10 +2,10 @@ import asyncio
 import contextlib
 import os
 import ssl
+import sys
 import threading
 import time
 import typing
-import sys
 
 import pytest
 import trustme

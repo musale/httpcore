@@ -2,7 +2,7 @@ import contextlib
 import functools
 import threading
 import time
-from typing import Callable, Tuple, Iterator
+from typing import Callable, Iterator, Tuple
 
 import sniffio
 import trio
