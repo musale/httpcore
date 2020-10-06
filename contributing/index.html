@@ -1,0 +1,678 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Do one thing, and do it well.">
+      
+      
+        <link rel="canonical" href="https://www.encode.io/httpcore/contributing/">
+      
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.0.2">
+    
+    
+      
+        <title>Contributing - HTTP Core</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.38780c08.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f72e892.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../css/custom.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+      
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#contributing" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://www.encode.io/httpcore" title="HTTP Core" class="md-header-nav__button md-logo" aria-label="HTTP Core">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            HTTP Core
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Contributing
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/encode/httpcore/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    encode/httpcore
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://www.encode.io/httpcore" title="HTTP Core" class="md-nav__button md-logo" aria-label="HTTP Core">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    HTTP Core
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/encode/httpcore/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    encode/httpcore
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../api/" class="md-nav__link">
+      Developer Interface
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Contributing
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
+      Contributing
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#reporting-bugs-or-other-issues" class="md-nav__link">
+    Reporting Bugs or Other Issues
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#development" class="md-nav__link">
+    Development
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unasync" class="md-nav__link">
+    Unasync
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-and-linting" class="md-nav__link">
+    Testing and Linting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documenting" class="md-nav__link">
+    Documenting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resolving-build-ci-failures" class="md-nav__link">
+    Resolving Build / CI Failures
+  </a>
+  
+    <nav class="md-nav" aria-label="Resolving Build / CI Failures">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#check-job-failed" class="md-nav__link">
+    Check Job Failed
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docs-job-failed" class="md-nav__link">
+    Docs Job Failed
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python-3x-job-failed" class="md-nav__link">
+    Python 3.X Job Failed
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#releasing" class="md-nav__link">
+    Releasing
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#reporting-bugs-or-other-issues" class="md-nav__link">
+    Reporting Bugs or Other Issues
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#development" class="md-nav__link">
+    Development
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unasync" class="md-nav__link">
+    Unasync
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-and-linting" class="md-nav__link">
+    Testing and Linting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documenting" class="md-nav__link">
+    Documenting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resolving-build-ci-failures" class="md-nav__link">
+    Resolving Build / CI Failures
+  </a>
+  
+    <nav class="md-nav" aria-label="Resolving Build / CI Failures">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#check-job-failed" class="md-nav__link">
+    Check Job Failed
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docs-job-failed" class="md-nav__link">
+    Docs Job Failed
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python-3x-job-failed" class="md-nav__link">
+    Python 3.X Job Failed
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#releasing" class="md-nav__link">
+    Releasing
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="contributing">Contributing</h1>
+<p>Thanks for considering contributing to HTTP Core!</p>
+<p>We welcome contributors to:</p>
+<ul>
+<li>Try <a href="https://www.python-httpx.org">HTTPX</a>, as it is HTTP Core's main entry point,
+and <a href="https://github.com/encode/httpx/issues/new">report bugs/issues you find</a></li>
+<li>Help triage <a href="https://github.com/encode/httpcore/issues">issues</a> and investigate
+root causes of bugs</li>
+<li><a href="https://github.com/encode/httpcore/pulls">Review Pull Requests of others</a></li>
+<li>Review, clarify and write documentation</li>
+<li>Participate in discussions</li>
+</ul>
+<h2 id="reporting-bugs-or-other-issues">Reporting Bugs or Other Issues</h2>
+<p>HTTP Core is a fairly specialized library and its main purpose is to provide a
+solid base for <a href="https://www.python-httpx.org">HTTPX</a>. HTTPX should be considered
+the main entry point to HTTP Core and as such we encourage users to test and raise
+issues in <a href="https://github.com/encode/httpx/issues/new">HTTPX's issue tracker</a>
+where maintainers and contributors can triage and move to HTTP Core if appropriate.</p>
+<p>If you are convinced that the cause of the issue is on HTTP Core you're more than
+welcome to <a href="https://github.com/encode/httpcore/issues/new">open an issue</a>.</p>
+<p>Please attach as much detail as possible and, in case of a
+bug report, provide information like:</p>
+<ul>
+<li>OS platform or Docker image</li>
+<li>Python version</li>
+<li>Installed dependencies and versions (<code>python -m pip freeze</code>)</li>
+<li>Code snippet to reproduce the issue</li>
+<li>Error traceback and output</li>
+</ul>
+<p>It is quite helpful to increase the logging level of HTTP Core and include the
+output of your program. To do so set the <code>HTTPCORE_LOG_LEVEL</code> or <code>HTTPX_LOG_LEVEL</code>
+environment variables to <code>TRACE</code>, for example:</p>
+<div class="codehilite"><pre><span></span><code><span class="gp">$</span> <span class="nv">HTTPCORE_LOG_LEVEL</span><span class="o">=</span>TRACE python test_script.py
+<span class="go">TRACE [2020-06-06 09:55:10] httpcore._async.connection_pool - get_connection_from_pool=(b&#39;https&#39;, b&#39;localhost&#39;, 5000)</span>
+<span class="go">TRACE [2020-06-06 09:55:10] httpcore._async.connection_pool - created connection=&lt;httpcore._async.connection.AsyncHTTPConnection object at 0x1110fe9d0&gt;</span>
+<span class="go">...</span>
+</code></pre></div>
+
+
+<p>The output will be quite long but it will help dramatically in diagnosing the problem.</p>
+<p>For more examples please refer to the
+<a href="https://www.python-httpx.org/environment_variables/#httpx_log_level">environment variables documentation in HTTPX</a>.</p>
+<h2 id="development">Development</h2>
+<p>To start developing HTTP Core create a <strong>fork</strong> of the
+<a href="https://github.com/encode/httpcore">repository</a> on GitHub.</p>
+<p>Then clone your fork with the following command replacing <code>YOUR-USERNAME</code> with
+your GitHub username:</p>
+<div class="codehilite"><pre><span></span><code>$ git clone https://github.com/YOUR-USERNAME/httpcore
+</code></pre></div>
+
+
+<p>You can now install the project and its dependencies using:</p>
+<div class="codehilite"><pre><span></span><code>$ <span class="nb">cd</span> httpcore
+$ scripts/install
+</code></pre></div>
+
+
+<h2 id="unasync">Unasync</h2>
+<p>HTTP Core provides synchronous and asynchronous interfaces. As you can imagine,
+keeping two almost identical versions of code in sync can be quite time consuming.
+To work around this problem HTTP Core uses a technique called <em>unasync</em>, where
+the development is focused on the asynchronous version of the code and a script
+generates the synchronous version from it.</p>
+<p>As such developers should:</p>
+<ul>
+<li>Only make modifications in the asynchronous and shared portions of the code.
+In practice this roughly means avoiding the <code>httpcore/_sync</code> directory.</li>
+<li>Write tests <em>only under <code>async_tests</code></em>, synchronous tests are also generated
+as part of the unasync process.</li>
+<li>Run <code>scripts/unasync</code> to generate the synchronous versions. Note the script
+is ran as part of other scripts as well, so you don't usually need to run this
+yourself.</li>
+<li>Run the entire test suite as decribed below.</li>
+</ul>
+<h2 id="testing-and-linting">Testing and Linting</h2>
+<p>We use custom shell scripts to automate testing, linting,
+and documentation building workflow.</p>
+<p>To run the tests, use:</p>
+<div class="codehilite"><pre><span></span><code>$ scripts/test
+</code></pre></div>
+
+
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The test suite spawns testing servers on ports <strong>8000</strong> and <strong>8001</strong>.
+Make sure these are not in use, so the tests can run properly.</p>
+</div>
+<p>You can run a single test script like this:</p>
+<div class="codehilite"><pre><span></span><code>$ scripts/test -- tests/async_tests/test_interfaces.py
+</code></pre></div>
+
+
+<p>To run the code auto-formatting:</p>
+<div class="codehilite"><pre><span></span><code>$ scripts/lint
+</code></pre></div>
+
+
+<p>Lastly, to run code checks separately (they are also run as part of <code>scripts/test</code>), run:</p>
+<div class="codehilite"><pre><span></span><code>$ scripts/check
+</code></pre></div>
+
+
+<h2 id="documenting">Documenting</h2>
+<p>Documentation pages are located under the <code>docs/</code> folder.</p>
+<p>To run the documentation site locally (useful for previewing changes), use:</p>
+<div class="codehilite"><pre><span></span><code>$ scripts/docs
+</code></pre></div>
+
+
+<h2 id="resolving-build-ci-failures">Resolving Build / CI Failures</h2>
+<p>Once you've submitted your pull request, the test suite will automatically run, and the results will show up in GitHub.
+If the test suite fails, you'll want to click through to the "Details" link, and try to identify why the test suite failed.</p>
+<p align="center" style="margin: 0 0 10px">
+  <img src="https://raw.githubusercontent.com/encode/httpx/master/docs/img/gh-actions-fail.png" alt='Failing PR commit status'>
+</p>
+
+<p>Here are some common ways the test suite can fail:</p>
+<h3 id="check-job-failed">Check Job Failed</h3>
+<p align="center" style="margin: 0 0 10px">
+  <img src="https://raw.githubusercontent.com/encode/httpx/master/docs/img/gh-actions-fail-check.png" alt='Failing GitHub action lint job'>
+</p>
+
+<p>This job failing means there is either a code formatting issue or type-annotation issue.
+You can look at the job output to figure out why it's failed or within a shell run:</p>
+<div class="codehilite"><pre><span></span><code>$ scripts/check
+</code></pre></div>
+
+
+<p>It may be worth it to run <code>$ scripts/lint</code> to attempt auto-formatting the code
+and if that job succeeds commit the changes.</p>
+<h3 id="docs-job-failed">Docs Job Failed</h3>
+<p>This job failing means the documentation failed to build. This can happen for
+a variety of reasons like invalid markdown or missing configuration within <code>mkdocs.yml</code>.</p>
+<h3 id="python-3x-job-failed">Python 3.X Job Failed</h3>
+<p align="center" style="margin: 0 0 10px">
+  <img src="https://raw.githubusercontent.com/encode/httpx/master/docs/img/gh-actions-fail-test.png" alt='Failing GitHub action test job'>
+</p>
+
+<p>This job failing means the unit tests failed or not all code paths are covered by unit tests.</p>
+<p>If tests are failing you will see this message under the coverage report:</p>
+<p><code>=== 1 failed, 435 passed, 1 skipped, 1 xfailed in 11.09s ===</code></p>
+<p>If tests succeed but coverage is lower than our current threshold, you will see this message under the coverage report:</p>
+<p><code>FAIL Required test coverage of 100% not reached. Total coverage: 99.00%</code></p>
+<h2 id="releasing">Releasing</h2>
+<p><em>This section is targeted at HTTPX maintainers.</em></p>
+<p>Before releasing a new version, create a pull request that includes:</p>
+<ul>
+<li><strong>An update to the changelog</strong>:<ul>
+<li>We follow the format from <a href="https://keepachangelog.com/en/1.0.0/">keepachangelog</a>.</li>
+<li><a href="https://github.com/encode/httpcore/compare/">Compare</a> <code>master</code> with the tag of the latest release, and list all entries that are of interest to our users:<ul>
+<li>Things that <strong>must</strong> go in the changelog: added, changed, deprecated or removed features, and bug fixes.</li>
+<li>Things that <strong>should not</strong> go in the changelog: changes to documentation, tests or tooling.</li>
+<li>Try sorting entries in descending order of impact / importance.</li>
+<li>Keep it concise and to-the-point. 🎯</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>A version bump</strong>: see <code>__version__.py</code>.</li>
+</ul>
+<p>For an example, see <a href="https://github.com/encode/httpcore/pull/99">#99</a>.</p>
+<p>Once the release PR is merged, create a
+<a href="https://github.com/encode/httpcore/releases/new">new release</a> including:</p>
+<ul>
+<li>Tag version like <code>0.9.3</code>.</li>
+<li>Release title <code>Version 0.9.3</code></li>
+<li>Description copied from the changelog.</li>
+</ul>
+<p>Once created this release will be automatically uploaded to PyPI.</p>
+<p>If something goes wrong with the PyPI job the release can be published using the
+<code>scripts/publish</code> script.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../api/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Developer Interface
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/vendor.77e55a48.min.js"></script>
+      <script src="../assets/javascripts/bundle.9554a270.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "..",
+          features: [],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.4ac00218.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>
